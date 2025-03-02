@@ -28,6 +28,58 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
+#header h1, 
+#header p {
+  color: #999999;  
+}
+#footer h2, 
+#footer p, 
+#footer dt, 
+#footer dd {
+  color: #999999;  
+}
+
+
+
+.custom-icon-wrapper {
+    width: 180px;  /* 안쪽 원 크기 */
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 4px solid rgba(255, 255, 255, 0.5); /* 안쪽 테두리 */
+    position: relative;
+}
+
+/* 바깥쪽 테두리 */
+.custom-icon-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 220px;  /* 안쪽 원보다 20px 더 크게 */
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3); /* 바깥쪽 테두리 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    box-sizing: border-box;
+}
+
+.custom-icon {
+    width: 80px;  /* 아이콘 크기 */
+    height: 80px;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
 
 body {
 	line-height: 1;
@@ -99,11 +151,11 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #935d8c;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-color: #fce4ec;
+		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #fef4ea 15%, #f0fbfe 85%);
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #fef4ea 15%, #f0fbfe 85%);
+		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #fef4ea 15%, #f0fbfe 85%);
+		background-image: url("images/overlay.png"), linear-gradient(45deg, #fef4ea 15%, #f0fbfe 85%);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -125,10 +177,13 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-size: 17pt;
+		font-family: "Nanum Gothic", Source Sans Pro, Helvetica, sans-serif;
+		font-size: 12pt;
 		font-weight: 300;
 		line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; /* 텍스트 렌더링 품질 최적화 */
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -2404,11 +2459,15 @@ input, select, textarea {
 				width: 100%;
 			}
 
-		.image.main {
-			display: block;
-			margin: 0 0 3em 0;
-			width: 100%;
-		}
+.image.main {
+    display: block;
+    margin: 0 5px 10px 0;  /* 우측 여백 (margin-right: 20px) */
+    padding-right: 10px; /* 우측 패딩 추가 */
+    width: 300px; /* 고정 크기 */
+    max-width: 300px;
+    height: auto;
+    flex-shrink: 0;
+}
 
 			.image.main img {
 				width: 100%;
@@ -3094,14 +3153,14 @@ input, select, textarea {
 			}
 
 			#header.alt > * {
-				-moz-transition: opacity 3s ease;
-				-webkit-transition: opacity 3s ease;
-				-ms-transition: opacity 3s ease;
-				transition: opacity 3s ease;
-				-moz-transition-delay: 0.5s;
-				-webkit-transition-delay: 0.5s;
-				-ms-transition-delay: 0.5s;
-				transition-delay: 0.5s;
+				-moz-transition: opacity 1s ease;
+				-webkit-transition: opacity 1s ease;
+				-ms-transition: opacity 1s ease;
+				transition: opacity 1s ease;
+				-moz-transition-delay: 0.4s;
+				-webkit-transition-delay: 0.4s;
+				-ms-transition-delay: 0.4s;
+				transition-delay: 0.4s;
 				opacity: 1;
 			}
 
@@ -3549,7 +3608,7 @@ input, select, textarea {
 			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
+			background-image: linear-gradient(90deg, #F5CACF, #D7D2E5, #D1E9F9);
 		}
 
 		#main table tbody tr {
@@ -3783,3 +3842,139 @@ input, select, textarea {
 			}
 
 		}
+
+
+
+
+
+/* 새로운 내비게이션 스타일 */
+#new-nav {
+    background-color: transparent; /* 배경색을 투명하게 */
+    padding: 10px 0;
+  padding-bottom: 40px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#new-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+}
+
+#new-nav ul li {
+    margin: 0 15px;
+}
+
+#new-nav ul li a {
+    font-size: 16px;
+    color: inherit; /* 텍스트 색상 부모로부터 상속 */
+    text-decoration: none; /* 기본적으로 링크 밑줄 제거 */
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none; /* 점선(혹은 테두리) 제거 */
+    outline: none; /* 포커스 시 나오는 외곽선 제거 */
+}
+
+#new-nav ul li a:hover {
+    background-color: transparent; /* hover 시 배경색 제거 */
+}
+
+#new-nav ul li a.active {
+    background-color: #e0e0e0; /* 클릭한 메뉴 회색 배경 */
+    color: inherit; /* 활성화된 항목 텍스트 색상 부모로부터 상속 */
+}
+
+/* 탭 콘텐츠 */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+
+
+
+
+
+
+/*
+
+
+/* 탭 버튼 중앙 정렬 */
+.tab-container {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;     /* 세로 중앙 정렬 */
+    width: 100%;
+    height: 50px;            /* 탭 버튼의 높이를 설정하여 중앙에 정확히 배치 */
+    margin-bottom: 20px;
+}
+
+/* 버튼 사이 간격 추가 */
+.tab-container .tab-button {
+    margin: 0 10px; /* 왼쪽과 오른쪽 간격을 10px로 설정 */
+}
+
+
+
+
+
+/* 버튼 스타일 */
+.tab-button {
+    padding: 10px 15px;
+    background-color: #ddd;
+    cursor: pointer;
+    font-family: "나머지 요소와 동일한 폰트", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    outline: none;       /* 테두리 효과 없애기 */
+    border: none;        /* 테두리 없애기 */
+/*이 윗줄이랑 아랫줄을 이렇게
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important; 
+*/
+    border-radius: 5px;
+    height: 40px;        /* 버튼의 높이 지정 */
+    line-height: 20px;   /* 텍스트 세로 중앙 정렬 */
+    vertical-align: middle; /* 세로 정렬 정확히 맞추기 */
+}
+
+.tab-button.active {
+    background-color: #666;
+    color: white;
+}
+
+
+
+
+
+
+/* 탭 콘텐츠 숨기기 */
+.tab-content {
+    display: none;       /* 기본적으로 모든 탭 콘텐츠 숨김 */
+}
+
+/* active 상태에서 탭 콘텐츠 보이기 */
+.tab-content.active {
+    display: block;      /* active 클래스가 있는 탭 콘텐츠는 보이게 함 */
+    margin-top: 20px;    /* 버튼과 콘텐츠 사이 간격 추가 */
+}
+
+/* content-wrapper 내부 요소 배치 */
+.content-wrapper {
+    display: flex;
+    align-items: flex-start; /* 기존 정렬 유지 */
+    gap: 20px;
+  padding-bottom: 50px;
+}
+
+
+*/
